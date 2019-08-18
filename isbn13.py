@@ -1,5 +1,22 @@
-# ISBN-13 Books
 def calculate_isbn13_barcode_check_digit(isbn):
+
+    total = 0
+
+    for position,digit in enumerate(isbn):
+        num_digit = int(digit)
+        # 1st = multiply by 1, 2nd = multiply by 3, 3rd = 1..etc and sum total
+        if position % 2 != 0:            
+            total += (num_digit*3)
+        else:
+            total += num_digit
+        remainder = total % 10
+        # perform check once last digit reached
+        if position == 11:
+            return str(10 - (total % 10))
+
+# print(calculate_isbn13_barcode_check_digit('978071485726'))
+
+def validate_isbn13_barcode_check_digit(isbn):
 
     total = 0
 
@@ -24,6 +41,6 @@ def calculate_isbn13_barcode_check_digit(isbn):
                   return('This is a valid isbn13 barcode.')
             # return value it is supposed to be
               else:
-                  return 10 - (total % 10)
+                  return('This is an invalid isbn13 barcode.')
 
-# print(calculate_isbn13_barcode_check_digit('9781234567893'))
+# print(validate_isbn13_barcode_check_digit('9781742660461'))

@@ -24,7 +24,7 @@ class GTIN13Test(unittest.TestCase):
     
     def test_invalid_validate_gtin13_barcode_check_digit(self):
         self.assertEqual(
-            validate_gtin13_barcode_check_digit('512345678903'),
+            validate_gtin13_barcode_check_digit('5123456789032'),
             'This is an invalid gtin13 barcode.'
         )
 
