@@ -14,17 +14,17 @@ class GTIN13Test(unittest.TestCase):
         self.assertEqual(calculate_gtin13_barcode_check_digit('932769300242'), '7')
 
     def test_calculate_gtin13_barcode_check_digit_where_check_digit_is_0(self):
-        self.assertEqual(calculate_gtin13_barcode_check_digit('51234567890'), '0')
+        self.assertEqual(calculate_gtin13_barcode_check_digit('735005385004'), '0')
 
     def test_valid_validate_gtin13_barcode_check_digit(self):
         self.assertEqual(
-            validate_gtin13_barcode_check_digit('512345678900'),
+            validate_gtin13_barcode_check_digit('7350053850040'),
             'This is a valid gtin13 barcode.'
         )
     
     def test_invalid_validate_gtin13_barcode_check_digit(self):
         self.assertEqual(
-            validate_gtin13_barcode_check_digit('5123456789032'),
+            validate_gtin13_barcode_check_digit('7350053850042'),
             'This is an invalid gtin13 barcode.'
         )
 
