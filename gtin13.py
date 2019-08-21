@@ -1,4 +1,4 @@
-def calculate_gtin13_barcode_check_digit(gtin):
+def validate_gtin13_barcode_check_digit(gtin):
 
     total = 0
 
@@ -18,10 +18,10 @@ def calculate_gtin13_barcode_check_digit(gtin):
             else:
                 return ('This is an invalid gtin13 barcode.')
 
-# print(calculate_gtin13_barcode_check_digit('4070071967072'))
+# print(validate_gtin13_barcode_check_digit('940055061977'))
 
 
-def validate_gtin13_barcode_check_digit(gtin):
+def calculate_gtin13_barcode_check_digit(gtin):
 
     total = 0
 
@@ -36,6 +36,9 @@ def validate_gtin13_barcode_check_digit(gtin):
         # perform check if it is the last digit
         if position == 11:
             additional_digit = total % 10
-            return 10-additional_digit
+            if additional_digit == 0:
+                return '0'
+            else:
+                return str(10-additional_digit)
 
-# print(validate_gtin13_barcode_check_digit('407007196707'))
+# print(calculate_gtin13_barcode_check_digit('940055061977'))
